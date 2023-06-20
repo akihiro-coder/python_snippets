@@ -1,0 +1,55 @@
+snippet #show_image "show image by opencv(not work in docker)"
+img = cv.imreead(filePath)
+cv.imshow('image', img)
+cv.waitKey(0)
+cv.destroyAllWindows()
+endsnippet 
+
+
+snippet #movie_loop "動画ファイルを無限ループで表示"
+import cv2
+import sys
+
+movie_file_path = ''
+delay = 1
+window_name = 'frame'
+
+cap = cv2.VideoCapture(movie_file_path)
+
+if not cap.isOpened():
+    sys.exit()
+
+while True:
+    ret, frame = cap.read()
+    if ret:
+        cv2.imshow(window_name, frame)
+        if cv2.waitKey(delay) & 0xFF == ord('q'):
+            break
+    else:
+        cap.set(cv2.CAP_PROP_POS_FRAMES, 0)
+
+cv2.destroyWindow(window_name)
+endsnippet
+
+
+snippet #camera_realtime "カメラのリアルタイム映像を表示"
+import cv2
+import sys
+
+camera_id = 0
+delay = 1
+window_name = 'frame'
+
+cap = cv2.VideoCapture(camera_id)
+
+if not cap.isOpened():
+    sys.exit()
+
+while True:
+    ret, frame = cap.read()
+    cv2.imshow(window_name, frame)
+    if cv2.waitKey(delay) & 0xFF == ord('q'):
+        break
+
+cv2.destroyWindow(window_name)
+endsnippet
