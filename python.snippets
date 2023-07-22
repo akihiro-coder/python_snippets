@@ -70,16 +70,18 @@ img = cv.imread(file_path) # BGR, shape = (h, w)
 endsnippet
 
 snippet image_save_CV "save image by CV"
+save_path = 
 cv.imwrite(save_path, img)
 endsnippet 
 
 
 snippet image_read_PIL "read image by PIL"
 file_path = 
-im = Image.open(file_path) # RGB, size = (w, h)
+img = Image.open(file_path) # RGB, size = (w, h)
 endsnippet 
 
 snippet image_save_PIL "save image by PIL"
+save_path = 
 img.save(save_path)
 endsnippet 
 
