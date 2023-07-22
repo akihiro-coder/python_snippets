@@ -1,12 +1,12 @@
-snippet #show_image "show image by opencv(not work in docker)"
-img = cv.imreead(filePath)
+snippet image_show "show image by opencv(not work in docker)"
+img = cv.imread(filePath) # BGR
 cv.imshow('image', img)
 cv.waitKey(0)
 cv.destroyAllWindows()
 endsnippet 
 
 
-snippet #movie_loop "動画ファイルを無限ループで表示"
+snippet movie_loop "動画ファイルを無限ループで表示"
 import cv2
 import sys
 
@@ -32,7 +32,7 @@ cv2.destroyWindow(window_name)
 endsnippet
 
 
-snippet #camera_realtime "カメラのリアルタイム映像を表示"
+snippet camera_realtime "カメラのリアルタイム映像を表示"
 import cv2
 import sys
 
@@ -53,3 +53,38 @@ while True:
 
 cv2.destroyWindow(window_name)
 endsnippet
+
+
+
+
+snippet image_read_CV_with_GrayScale "read image and convert to gray image"
+img = cv.imread(filePath, cv.IMREAD_GRAYSCALE) # gray
+cv.imshow('image', img)
+cv.waitKey(0)
+cv.destroyAllWindows()
+endsnippet 
+
+snippet image_read_CV "read image by CV"
+file_path = 
+img = cv.imread(file_path) # BGR, shape = (h, w)
+endsnippet
+
+snippet image_save_CV "save image by CV"
+cv.imwrite(save_path, img)
+endsnippet 
+
+
+snippet image_read_PIL "read image by PIL"
+file_path = 
+im = Image.open(file_path) # RGB, size = (w, h)
+endsnippet 
+
+snippet image_save_PIL "save image by PIL"
+img.save(save_path)
+endsnippet 
+
+
+
+
+
+
